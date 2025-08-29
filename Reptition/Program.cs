@@ -14,7 +14,7 @@ static void Fight()
   while (p1namnchecker == true)
   {
     Console.Write("Ange namn på spelare 1: ");
-    p1Name = Console.ReadLine() ?? "Spelare 1";
+    p1Name = Console.ReadLine();
     if (string.IsNullOrWhiteSpace(p1Name))
     {
       Console.WriteLine("Du måste skriva ett namn för p1");
@@ -27,7 +27,7 @@ static void Fight()
   while (p2namnchecker == true)
   {
     Console.Write("Ange namn på spelare 2: ");
-    p2Name = Console.ReadLine() ?? "Spelare 2";
+    p2Name = Console.ReadLine();
     if (string.IsNullOrWhiteSpace(p2Name))
     {
       Console.WriteLine("Du måste skriva ett namn för p2");
