@@ -1,7 +1,7 @@
 ﻿public class Tamagotchi
 {
     private int hunger = 10;
-    private int boredom = 10;
+    private int boredom = 0;
     private List<string> words = [];
     private List<string> Games = ["You play Fetch with", "You play cards with", "You start dancing with",];
     private List<string> Food = ["You give chicken nuggets to", "You give Pineapple to", "You give a hamburger to",];
@@ -16,22 +16,31 @@
     {
         hunger--;
         boredom++;
+        if (IsAlive() == false)
+        {
+            Console.WriteLine($"Your {name} has died!");
+            Thread.Sleep(1000);
+        }
+        else
+        {
+
+        }
     }
 
     public void Feed()
     {
         hunger++;
         int r = Random.Shared.Next(0, 3);
-        Console.WriteLine($"{Food[r]}" + $"{name}");
-        Thread.Sleep(2000);
+        Console.WriteLine($"{Food[r]}" + $" {name}");
+        Thread.Sleep(1000);
     }
 
     public void Play()
     {
         boredom--;
         int r = Random.Shared.Next(0, 3);
-        Console.WriteLine($"{Games[r]}" + $"{name}");
-        Thread.Sleep(2000);
+        Console.WriteLine($"{Games[r]}" + $" {name}");
+        Thread.Sleep(1000);
     }
 
 
@@ -47,7 +56,6 @@
     public void Printstats()
     {
         Console.WriteLine($"Boredom: {boredom}, hunger:{hunger}");
-        Thread.Sleep(1000);
     }
 
     public bool GetAlive()
@@ -57,7 +65,7 @@
 
     public bool IsAlive()
     {
-        if (hunger < 0 || boredom < 0)
+        if (hunger < 0 || boredom > 10)
         {
             return false;
         }

@@ -43,10 +43,8 @@ while (tama.GetAlive() == true)
     }
     else
     {
-
+        
     }
     tama.Tick();
-
 }
-
 Console.ReadLine();
